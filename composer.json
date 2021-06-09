@@ -1,5 +1,5 @@
 {
-  "name": "easyapis.io/invoice-creator",
+  "name": "easyapis.io/easyinvoice",
   "description": "A wrapper package for easyapis.io invoice creator API.",
   "minimum-stability": "dev",
   "license": "MIT",
