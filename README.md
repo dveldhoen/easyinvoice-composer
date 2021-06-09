@@ -13,10 +13,12 @@ Much appreciated!
 </p>
 
 ## Platform support
-|<b>Platform</b> | Supported  | Link |
-|---|---|---|
-| PHP | Yes! | <a href="https://packagist.org/packages/easyapis.io/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-Composer-blue" alt="Available on Composer"></a> |
-| Javascript | Yes! | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-NPM-blue" alt="Available on NPM"></a> |
+|<b>Platform</b> | Repository |Supported  | Link |
+|---|---|---|---|
+| PHP | Composer |Yes! | <a href="https://packagist.org/packages/easyapis.io/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-Composer-blue" alt="Available on Composer"></a> |
+| Javascript | NPM | Yes! | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-NPM-blue" alt="Available on NPM"></a> |
+| Python | PIP | In progress... |  |
+| Java | Maven | In progress... |  |
 
 
 [comment]: <> (## Features)
