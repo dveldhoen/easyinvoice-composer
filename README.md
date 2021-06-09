@@ -65,6 +65,8 @@ use EasyApis\EasyInvoice;
 
 //Set the data you wish to see on your invoice
 $invoiceData = [
+    //"documentTitle" => "RECEIPT", //Defaults to INVOICE
+    //"locale" => "de-DE", //Defaults to en-US, used for number formatting (see docs)
     'currency' => 'USD',
     'taxNotation' => 'vat',
     'marginTop' => 25,
@@ -79,6 +81,9 @@ $invoiceData = [
         'zip' => '1234 AB',
         'city' => 'Sampletown',
         'country' => 'Samplecountry',
+        //"custom1" => "custom value 1",
+        //"custom2" => "custom value 2",
+        //"custom3" => "custom value 3"
     ],
     'client' => [
         'company' => 'Client Corp',
@@ -86,6 +91,9 @@ $invoiceData = [
         'zip' => '4567 CD',
         'city' => 'Clientcity',
         'country' => 'Clientcountry',
+        //"custom1" => "custom value 1",
+        //"custom2" => "custom value 2",
+        //"custom3" => "custom value 3"
     ],
     'invoiceNumber' => '2021.0001',
     'invoiceDate' => '1.1.2021',
@@ -104,6 +112,17 @@ $invoiceData = [
         ],
     ],
     'bottomNotice' => 'Kindly pay your invoice within 15 days.',
+    //Used for translating the headers to your preferred language
+    //Defaults to English. Below example is translated to Dutch
+    // "translate" => [ 
+    //     "invoiceNumber" => "Factuurnummer",
+    //     "invoiceDate" => "Factuurdatum",
+    //     "products" => "Producten", 
+    //     "quantity" => "Aantal", 
+    //     "price" => "Prijs",
+    //     "subtotal" => "Subtotaal",
+    //     "total" => "Totaal" 
+    // ]
 ];
 
 //Sample code to test the library
