@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../../vendor/autoload.php';
 
 use GuzzleHttp\Client;
 
@@ -12,18 +12,12 @@ class Request
     public $data;
 
     //Methods
-    function send()
+    function send($data)
     {
         try {
             $client = new Client();
             $response = $client->request('POST', 'https://api.easyinvoice.cloud/v1/invoices', [
-                'form_params' => [
-                    'field_name' => 'abc',
-                    'other_field' => '123',
-                    'nested_field' => [
-                        'nested' => 'hello'
-                    ]
-                ]
+                'json' => ["data" => $data]
             ]);
 
             if ($response->getBody()){
