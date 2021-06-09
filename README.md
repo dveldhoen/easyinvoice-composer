@@ -1,1 +1,3 @@
-# easyinvoice-composer
+PHP library for creating beautiful PDF invoices
+
+Documentation coming soon...
