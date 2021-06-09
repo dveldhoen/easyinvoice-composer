@@ -1,0 +1,16 @@
+{
+  "name": "easyapis.io/invoice-creator",
+  "description": "A wrapper package for easyapis.io invoice creator API.",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Danny Veldhoen",
+      "email": "info@easyapis.io"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "guzzlehttp/guzzle": "^7.3"
+  }
+}
