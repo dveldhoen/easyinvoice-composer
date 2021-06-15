@@ -17,19 +17,8 @@ Much appreciated!
 |---|---|---|---|
 | PHP | Composer |Yes! | <a href="https://packagist.org/packages/easyapis.io/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-Composer-blue" alt="Available on Composer"></a> |
 | Javascript | NPM | Yes! | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-NPM-blue" alt="Available on NPM"></a> |
-| Python | PIP | In progress... |  |
+| Python | PIP | Yes! | <a href="https://pypi.org/project/easyinvoice/"><img src="https://img.shields.io/badge/EasyInvoice%20on-PIP-blue" alt="Available on PIP"></a> |
 | Java | Maven | In progress... |  |
-
-
-[comment]: <> (## Features)
-
-[comment]: <> (- [x] Create invoices)
-
-[comment]: <> (- [ ] List, get, update, delete invoices &#40;api ready / npm in progress&#41;)
-
-[comment]: <> (- [ ] Create, list, get, update, delete clients &#40;api ready / npm in progress&#41;)
-
-[comment]: <> (- [ ] More soon...)
 
 ## Sample
 <div align="center">
