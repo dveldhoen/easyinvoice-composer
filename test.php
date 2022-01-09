@@ -103,6 +103,6 @@ $invoice = EasyInvoice::create($invoiceData);
 //print_r($invoice);
 
 $fileName = 'invoice-test';
-EasyInvoice::save(base64_decode($invoice['pdf']), $fileName);
+EasyInvoice::save($invoice['pdf'], $fileName);
 
 echo 'Invoice saved as ' . $fileName . '.pdf';

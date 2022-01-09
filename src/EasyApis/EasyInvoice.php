@@ -33,6 +33,6 @@ class EasyInvoice
     }
 
     public static function save($pdfBase64, $filename = 'invoice'){
-        file_put_contents($filename . '.pdf', $pdfBase64);
+        file_put_contents($filename . '.pdf', base64_decode($pdfBase64));
     }
 }
