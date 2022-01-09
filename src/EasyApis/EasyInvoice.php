@@ -18,17 +18,21 @@ class EasyInvoice
     {
         try {
             $client = new Client();
-            $response = $client->request('POST', 'https://api.easyinvoice.cloud/v1/invoices', [
+            $response = $client->request('POST', 'https://api.easyinvoice.cloud/v2/free/invoices', [
                 'json' => ["data" => $data]
             ]);
 
             if ($response->getBody()) {
                 $result = json_decode($response->getBody(), true);
-                return $result['data']['pdf'];
+                return $result['data'];
             }
 
         } catch (\GuzzleHttp\Exception\GuzzleException $e) {
             echo $e;
         }
+    }
+
+    public static function save($pdfBase64, $filename = 'invoice'){
+        file_put_contents($filename . '.pdf', $pdfBase64);
     }
 }
