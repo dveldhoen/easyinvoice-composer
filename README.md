@@ -1,7 +1,21 @@
-<p align="center"><a href="https://easyinvoice.cloud" target="_blank" rel="noopener noreferrer"><img width="250" src="https://public.easyinvoice.cloud/img/logo_en_original.png" alt="Easy Invoice logo"></a></p>
+<h1 align="center">Easy Invoice</h1>
+<p align="center">A product by<br/><br/><a href="https://budgetinvoice.com" target="_blank" rel="noopener noreferrer"><img width="250" src="https://public.budgetinvoice.com/img/logo_en_original.png" alt="Easy Invoice logo"></a></p>
 
-<p align="center">Easy Invoice is a package that will help you to create beautiful PDF invoices with ease.</p>
+<h4 align="center">Build for Web and Backend 💪</h4>
+<br/>
+<p align="center">
+  <a href="https://packagist.org/packages/budgetinvoice/easyinvoice"><img src="https://img.shields.io/packagist/v/budgetinvoice/easyinvoice" alt="Version"></a>
+  <a href="https://codecov.io/github/dveldhoen/easyinvoice-composer"><img src="https://img.shields.io/codecov/c/github/dveldhoen/easyinvoice-composer/master.svg" alt="Coverage Status"></a>  
+  <br/>
+  <a href="https://packagist.org/packages/budgetinvoice/easyinvoice/stats"><img src="https://img.shields.io/packagist/dm/budgetinvoice/easyinvoice" alt="Downloads"></a>
+  <a href="https://packagist.org/packages/budgetinvoice/easyinvoice"><img src="https://img.shields.io/packagist/l/budgetinvoice/easyinvoice" alt="License"></a>
+  <a href="https://github.com/dveldhoen/easyinvoice-composer"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="Pull Request's Welcome"></a>
+</p>
 
+<p align="center">
+<a href="https://apple.co/3ySZ5JY"><img height="45" src="https://public.budgetinvoice.com/img/appstore-badges/apple-appstore-us.png" alt=""/></a>
+<a href="https://play.google.com/store/apps/details?id=nl.dashweb.factuursimpel"><img height="45" src="https://public.budgetinvoice.com/img/appstore-badges/google-play-us.png" alt=""/></a>
+</p>
 
 <p align="center">
 If this package helped you out please star us on Github!
@@ -12,23 +26,20 @@ Much appreciated!
 <a href="https://github.com/dveldhoen/easyinvoice-composer/"><img src="https://img.shields.io/github/stars/dveldhoen/easyinvoice-composer.svg?style=social&label=Star" alt="Pull Request's Welcome"></a>
 </p>
 
+## Important
 
-<span style="color: orange;">
-<h3>Important</h3>
-Easy Invoice v1.x is deprecated and will stop working from the 1st of April 2022.<br/>
-Please upgrade to v2.x before this time.
-</span>
-<br/>
-<br/>
+1. Please note that this package is a wrapper for an API, so it's logic runs on external servers.
+2. Your data is secure and will not be shared with third parties.
+3. We try to keep the API up and running at all times, but we cannot guarantee 100% uptime. Please build in a retry
+   mechanism in case the API is down for maintenance.
 
-## Platform support
+## Installing
 
-|<b>Platform</b> | Repository |Supported  | Link                                                                                                                                                                       |
-|---|---|---|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| PHP | Composer |Yes! | <a href="https://packagist.org/packages/budgetinvoice/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-Composer-blue" alt="Available on Composer"></a> |
-| Javascript | NPM | Yes! | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-NPM-blue" alt="Available on NPM"></a>                          |
-| Python | PIP | Yes! | <a href="https://pypi.org/project/easyinvoice/"><img src="https://img.shields.io/badge/EasyInvoice%20on-PIP-blue" alt="Available on PIP"></a>                              |
-| Java | Maven | In progress... |                                                                                                                                                                            |
+Using composer:
+
+```bash
+$ composer require budgetinvoice/easyinvoice
+```
 
 ## Sample
 
@@ -44,6 +55,9 @@ Note: Since these samples are in JSON, don't forget to convert them to PHP notat
 - <a href="https://public.easyinvoice.cloud/json/easyinvoice-sample.json">[View JSON] First Sample</a>
 - <a href="https://public.easyinvoice.cloud/json/easyinvoice-sample-background.json">[View JSON] Second Sample</a>
 
+  <br/>
+
+
 ## Demo
 
 Sample 1:
@@ -54,12 +68,62 @@ Sample 2:
 <br/>
 <a href="https://phpsandbox.io/n/w2gev"><img src="https://phpsandbox.io/img/brand/badge.png" height="20" alt="PHPSandbox Notebook"></a>
 
-## Installing
+## Plans
 
-Using composer:
+| <b>Plan</b> | Rate                  | Price                                                                                                  | Link                                                                                                                                                                   |
+|-------------|-----------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Free        | 25 invoices / 15 days | $0                                                                                                     | Not required to register                                                                                                                                               |
+| Paid        | Unlimited             | - 30 day free trial<br/>- 1st month $1.99<br/>- $17.99 per month<br/><small>*Prices include VAT<small> | <a href="https://app.budgetinvoice.com/register" target="_blank"><img src="https://img.shields.io/badge/Register%20on-budgetinvoice.com-blue" alt="Register here"></a> |
 
-```bash
-$ composer require budgetinvoice/easyinvoice
+<br/>
+
+## To use paid
+
+1. Register through:
+   - Web: <a href="https://app.budgetinvoice.com/register" target="_blank">https://app.budgetinvoice.com/register</a>
+   - iOS: https://apple.co/3ySZ5JY
+   - Android: https://play.google.com/store/apps/details?id=nl.dashweb.factuursimpel
+2. Create an API key through the app: settings -> API keys
+3. Use the API Key as shown in the complete example below. Add the apiKey property to the data object.
+
+Note: The GUI is not (yet) fully translated to English, though the path to getting an apiKey should mostly be in
+English. Also this will allow you to use the in app purchase mechanism to pay for the subscription.
+<br/>
+
+## Development mode
+
+When using the free version, you can set the mode to 'development' to make sure you are not running into rate limits
+while testing this package or developing your invoices. The free version is limited to 25 invoices per 15 days. When
+your
+invoice looks good, you can switch to 'production' mode to create your production invoices. Production mode is activated
+by either not setting the mode or setting the mode to 'production'.
+
+## Direct REST API access
+
+In case you don't want to use the pip package, but you want to call our invoice creation api directly.
+
+```shell
+# HTTPS POST 
+https://api.budgetinvoice.com/v2/free/invoices
+
+# POST Data
+Format: JSON
+Structure: {
+  "data": { # Parent parameter must be 'data'
+    "mode": "development", # Production or development, defaults to production
+    "products": [
+      {
+        "quantity": 2,
+        "description": "Test product",
+        "taxRate": 6,
+        "price": 33.87
+      }
+    ],
+  }
+} 
+
+# Optionally add your paid apiKey to the header 
+Header: "Authorization": "Bearer 123abc" # Please register to receive a production apiKey: https://app.budgetinvoice.com/register
 ```
 
 ## Direct REST API access

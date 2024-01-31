@@ -18,7 +18,7 @@ class EasyInvoice
     {
         try {
             $client = new Client();
-            $response = $client->request('POST', 'https://api.easyinvoice.cloud/v2/free/invoices', [
+            $response = $client->request('POST', 'https://api.budgetinvoice.com/v2/free/invoices', [
                 'json' => ["data" => $data]
             ]);
 
