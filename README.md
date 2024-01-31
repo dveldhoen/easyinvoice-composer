@@ -55,9 +55,6 @@ Note: Since these samples are in JSON, don't forget to convert them to PHP notat
 - <a href="https://public.easyinvoice.cloud/json/easyinvoice-sample.json">[View JSON] First Sample</a>
 - <a href="https://public.easyinvoice.cloud/json/easyinvoice-sample-background.json">[View JSON] Second Sample</a>
 
-  <br/>
-
-
 ## Demo
 
 Sample 1:
@@ -144,13 +141,22 @@ require __DIR__ . '/vendor/autoload.php';
 
 use BudgetInvoice\EasyInvoice
 
-//Set the data you wish to see on your invoice
-$invoiceData = [];
+// Set the data you wish to see on your invoice
+$invoiceData = [
+    "apiKey": "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    "mode": "development", // Production or development, defaults to production
+    "product": [
+        "quantity" => 2,
+        "description" => "Product 1",
+        "tax-rate" => 6,
+        "price" => 33.87
+    ]
+];
 
-//Sample code to test the library
+// Sample code to test the library
 $invoice = EasyInvoice::create($invoiceData);
 
-//The invoice['pdf'] variable wil contain a base64 PDF string
+// The invoice['pdf'] variable wil contain a base64 PDF string
 echo $invoice['pdf'];
 
 // Save the file locally as PDF
