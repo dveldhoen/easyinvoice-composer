@@ -296,6 +296,8 @@ use BudgetInvoice\EasyInvoice
 
 // Set the data you wish to see on your invoice
 $invoiceData = [
+    "apiKey" => "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    "mode" => "development", // Production or development, defaults to production
     "product": [
         "quantity" => 2,
         "description" => "Product 1",
@@ -326,6 +328,8 @@ Used for number formatting and the currency symbol:
 ```php
 //E.g. for Germany, prices would look like 123.456,78 €
 $data = [
+    "apiKey" => "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    "mode" => "development", // Production or development, defaults to production
     "settings" => [
         "locale" => "de-DE", 
         "currency" => "EUR"
@@ -334,6 +338,8 @@ $data = [
 
 //E.g. for US, prices would look like $123,456.78
 $data = [
+    "apiKey" => "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    "mode" => "development", // Production or development, defaults to production
     "settings" => [
         "locale" => "en-US",
         "currency" => "USD"
@@ -364,6 +370,8 @@ Supported file types:
 
 ```php
 $invoiceData = [
+    "apiKey" => "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    "mode" => "development", // Production or development, defaults to production
     "images" => [
         "logo" => "https://public.easyinvoice.cloud/img/logo_en_original.png",
         "background" => "https://public.easyinvoice.cloud/img/watermark_draft.jpg"
@@ -375,6 +383,8 @@ $invoiceData = [
 
 ```php
 $invoiceData = [
+    "apiKey" => "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    "mode" => "development", // Production or development, defaults to production
     //Note: Sample base64 string
     //Please use the link below to convert your image to base64
     "images":[  
@@ -402,6 +412,8 @@ Supported file types:
 $html = "<p>Hello world! This is invoice number %number%</p>";
 
 $invoiceData = [
+    "apiKey" => "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    "mode" => "development", // Production or development, defaults to production
     "customize" => [
         "template" => base64_encode($html) // Your template must be base64 encoded
     ],
