@@ -1,13 +1,13 @@
 {
-  "name": "easyapis.io/easyinvoice",
-  "description": "A wrapper package for easyapis.io invoice creator API.",
+  "name": "budgetinvoice/easyinvoice",
+  "description": "A wrapper package for the Budget Invoice invoice creator API.",
   "minimum-stability": "dev",
   "license": "MIT",
   "type": "library",
   "authors": [
     {
       "name": "Danny Veldhoen",
-      "email": "info@easyapis.io"
+      "email": "info@budgetinvoice.com"
     }
   ],
   "require": {
@@ -16,7 +16,7 @@
   },
   "autoload": {
     "psr-0": {
-      "EasyApis": "src/"
+      "BudgetInvoice": "src/"
     }
   }
 }

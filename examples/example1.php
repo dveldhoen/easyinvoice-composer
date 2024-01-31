@@ -1,10 +1,12 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
-use EasyApis\EasyInvoice;
+use BudgetInvoice\EasyInvoice;
 
 $invoiceData = [
+    'apiKey' => 'free',
+    'mode' => 'development',
     'currency' => 'USD',
     'taxNotation' => 'vat',
     'marginTop' => 25,
@@ -46,8 +48,8 @@ $invoiceData = [
     'bottomNotice' => 'Kindly pay your invoice within 15 days.',
 ];
 
-//Sample code to test the library
+// Sample code to test the library
 $invoice = EasyInvoice::create($invoiceData);
 
-//The invoice object wil contain a base64 PDF string
-echo $invoice;
+// The invoice array wil contain calculations and a base64 PDF string
+print_r($invoice);

@@ -23,12 +23,12 @@ Please upgrade to v2.x before this time.
 
 ## Platform support
 
-|<b>Platform</b> | Repository |Supported  | Link |
-|---|---|---|---|
-| PHP | Composer |Yes! | <a href="https://packagist.org/packages/easyapis.io/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-Composer-blue" alt="Available on Composer"></a> |
-| Javascript | NPM | Yes! | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-NPM-blue" alt="Available on NPM"></a> |
-| Python | PIP | Yes! | <a href="https://pypi.org/project/easyinvoice/"><img src="https://img.shields.io/badge/EasyInvoice%20on-PIP-blue" alt="Available on PIP"></a> |
-| Java | Maven | In progress... |  |
+|<b>Platform</b> | Repository |Supported  | Link                                                                                                                                                                       |
+|---|---|---|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| PHP | Composer |Yes! | <a href="https://packagist.org/packages/budgetinvoice/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-Composer-blue" alt="Available on Composer"></a> |
+| Javascript | NPM | Yes! | <a href="https://www.npmjs.com/package/easyinvoice"><img src="https://img.shields.io/badge/EasyInvoice%20on-NPM-blue" alt="Available on NPM"></a>                          |
+| Python | PIP | Yes! | <a href="https://pypi.org/project/easyinvoice/"><img src="https://img.shields.io/badge/EasyInvoice%20on-PIP-blue" alt="Available on PIP"></a>                              |
+| Java | Maven | In progress... |                                                                                                                                                                            |
 
 ## Sample
 
@@ -59,14 +59,14 @@ Sample 2:
 Using composer:
 
 ```bash
-$ composer require easyapis.io/easyinvoice
+$ composer require budgetinvoice/easyinvoice
 ```
 
 ## Direct REST API access
 
 ```shell
 # HTTPS POST 
-https://api.easyinvoice.cloud/v2/free/invoices
+https://api.budgetinvoice.com/v2/free/invoices
 
 # POST Data
 Format: JSON
@@ -78,7 +78,7 @@ Structure: {"data":{"products":[]}} # Parent object must be 'data'
 ```php
 require __DIR__ . '/vendor/autoload.php';
 
-use EasyApis\EasyInvoice
+use BudgetInvoice\EasyInvoice
 
 //Set the data you wish to see on your invoice
 $invoiceData = [];
@@ -99,7 +99,7 @@ EasyInvoice::save($invoice['pdf'], $fileName);
 ```php
 require __DIR__ . '/vendor/autoload.php';
 
-use EasyApis\EasyInvoice
+use BudgetInvoice\EasyInvoice
 
 //Set the data you wish to see on your invoice
 $invoiceData = [

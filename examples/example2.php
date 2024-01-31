@@ -1,12 +1,14 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
-use EasyApis\EasyInvoice;
+use BudgetInvoice\EasyInvoice;
 
 //Sample code to test the library
 $invoice = EasyInvoice::create(
     [
+        'apiKey' => 'free',
+        'mode' => 'development',
         'currency' => 'USD',
         'taxNotation' => 'vat',
         'marginTop' => 50,

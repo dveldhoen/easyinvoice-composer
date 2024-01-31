@@ -1,10 +1,13 @@
 <?php
 
-require_once __DIR__ . '/src/EasyApis/EasyInvoice.php';
+require_once __DIR__ . '/src/BudgetInvoice/EasyInvoice.php';
 
-use EasyApis\EasyInvoice;
+use BudgetInvoice\EasyInvoice;
 
 $invoiceData = [
+    'apiKey' => 'free',
+    // Set mode to development so we don't run into any rate limiting while developing or testing
+    'mode' => 'development',
     // Customize enables you to provide your own templates
     // Please review the documentation for instructions and examples
     "customize" => [
