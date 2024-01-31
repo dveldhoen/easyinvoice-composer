@@ -7,7 +7,7 @@ use BudgetInvoice\EasyInvoice;
 $invoiceData = [
     'apiKey' => 'free',
     // Set mode to development so we don't run into any rate limiting while developing or testing
-    'mode' => 'development',
+    'mode' => 'developmentx',
     // Customize enables you to provide your own templates
     // Please review the documentation for instructions and examples
     "customize" => [
@@ -99,13 +99,18 @@ $invoiceData = [
     ],
 ];
 
+try {
 //Sample code to test the library
-$invoice = EasyInvoice::create($invoiceData);
+    $invoice = EasyInvoice::create($invoiceData);
 
 //The invoice object wil contain a base64 PDF string
 //print_r($invoice);
 
-$fileName = 'invoice-test';
-EasyInvoice::save($invoice['pdf'], $fileName);
+    $fileName = 'invoice-test';
+    EasyInvoice::save($invoice['pdf'], $fileName);
 
-echo 'Invoice saved as ' . $fileName . '.pdf';
+    echo 'Invoice saved as ' . $fileName . '.pdf';
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+

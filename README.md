@@ -123,17 +123,6 @@ Structure: {
 Header: "Authorization": "Bearer 123abc" # Please register to receive a production apiKey: https://app.budgetinvoice.com/register
 ```
 
-## Direct REST API access
-
-```shell
-# HTTPS POST 
-https://api.budgetinvoice.com/v2/free/invoices
-
-# POST Data
-Format: JSON
-Structure: {"data":{"products":[]}} # Parent object must be 'data'
-```
-
 ## Getting Started - Basic Example
 
 ```php
@@ -143,8 +132,8 @@ use BudgetInvoice\EasyInvoice
 
 // Set the data you wish to see on your invoice
 $invoiceData = [
-    "apiKey": "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
-    "mode": "development", // Production or development, defaults to production
+    "apiKey" => "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    "mode" => "development", // Production or development, defaults to production
     "product": [
         "quantity" => 2,
         "description" => "Product 1",
@@ -164,7 +153,10 @@ $fileName = 'invoice';
 EasyInvoice::save($invoice['pdf'], $fileName);
 ```
 
-## Example
+## High volumes: asynchronous invoice creation
+Our API is able to handle high volumes of requests. If you need to create a lot of invoices fast, make sure to create them asynchronously. This will allow you to create multiple invoices at the same time.
+
+## Full Example
 
 ```php
 require __DIR__ . '/vendor/autoload.php';
@@ -173,11 +165,8 @@ use BudgetInvoice\EasyInvoice
 
 //Set the data you wish to see on your invoice
 $invoiceData = [
-    // Customize enables you to provide your own templates
-    // Please review the documentation for instructions and examples
-    "customize" => [
-        //  "template" => fs.readFileSync('template.html', 'base64') // Must be base64 encoded html 
-    ],
+    "apiKey" => "free", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
+    "mode" => "development", // Production or development, defaults to production    
     "images" => [
         // The logo on top of your invoice
         "logo" => "https://public.easyinvoice.cloud/img/logo_en_original.png",
@@ -212,7 +201,7 @@ $invoiceData = [
         // Invoice data
         "date" => "12-12-2021",
         // Invoice due date
-        "due-date" => "31-12-2021"
+        "dueDate" => "31-12-2021"
     ],
     // The products you would like to see on your invoice
     // Total values are being calculated automatically
@@ -220,48 +209,57 @@ $invoiceData = [
         [
             "quantity" => 2,
             "description" => "Product 1",
-            "tax-rate" => 6,
+            "taxRate" => 6,
             "price" => 33.87
         ],
         [
             "quantity" => 4.1,
             "description" => "Product 2",
-            "tax-rate" => 6,
+            "taxRate" => 6,
             "price" => 12.34
         ],
         [
             "quantity" => 4.5678,
             "description" => "Product 3",
-            "tax-rate" => 21,
+            "taxRate" => 21,
             "price" => 6324.453456
         ]
     ],
     // The message you would like to display on the bottom of your invoice
-    "bottom-notice" => "Kindly pay your invoice within 15 days.",
+    "bottomNotice" => "Kindly pay your invoice within 15 days.",
     // Settings to customize your invoice
     "settings" => [
         "currency" => "USD", // See documentation 'Locales and Currency' for more info. Leave empty for no currency.
-        // "locale" => "nl-NL", // Defaults to en-US, used for number formatting (See documentation 'Locales and Currency')
-        // "tax-notation" => "gst", // Defaults to 'vat'
-        // "margin-top" => 25, // Defaults to '25'
-        // "margin-right" => 25, // Defaults to '25'
-        // "margin-left" => 25, // Defaults to '25'
-        // "margin-bottom" => 25, // Defaults to '25'
-        // "format" => "A4" // Defaults to A4, options => A3, A4, A5, Legal, Letter, Tabloid
+        // "locale" => "nl-NL", // Defaults to en-US, used for number formatting (See documentation 'Locales and Currency')        
+        // "marginTop" => 25, // Defaults to '25'
+        // "marginRight" => 25, // Defaults to '25'
+        // "marginLeft" => 25, // Defaults to '25'
+        // "marginBottom" => 25, // Defaults to '25'
+        // "format" => "A4", // Defaults to A4, options => A3, A4, A5, Legal, Letter, Tabloid
+        // "height" => "1000px", // allowed units: mm, cm, in, px
+        // "width" => "500px", // allowed units: mm, cm, in, px
+        // "orientation" => "landscape" // portrait or landscape, defaults to portrait
     ],
     // Translate your invoice to your preferred language
     "translate" => [
         // "invoice" => "FACTUUR",  // Default to 'INVOICE'
         // "number" => "Nummer", // Defaults to 'Number'
         // "date" => "Datum", // Default to 'Date'
-        // "due-date" => "Verloopdatum", // Defaults to 'Due Date'
+        // "dueDate" => "Verloopdatum", // Defaults to 'Due Date'
         // "subtotal" => "Subtotaal", // Defaults to 'Subtotal'
         // "products" => "Producten", // Defaults to 'Products'
         // "quantity" => "Aantal", // Default to 'Quantity'
         // "price" => "Prijs", // Defaults to 'Price'
-        // "product-total" => "Totaal", // Defaults to 'Total'
-        // "total" => "Totaal" // Defaults to 'Total'
+        // "productTotal" => "Totaal", // Defaults to 'Total'
+        // "total" => "Totaal" // Defaults to 'Total',
+        // "taxNotation" => "btw", // Defaults to 'vat'
     ],
+    
+    // Customize enables you to provide your own templates
+    // Please review the documentation for instructions and examples
+    //    "customize" => [
+        //  "template" => base64_encode("<p>Hello World</p>"); // Must be base64 encoded html 
+    //    ],
 ];
 
 //Sample code to test the library
@@ -289,16 +287,58 @@ EasyInvoice::save($invoice['pdf'], $fileName);
 | result['calculations']['subtotal']                  | Rounded price without tax for all products                           | Number        |
 | result['calculations']['total']                     | Rounded price without tax for all products                           | Number        |
 
+## Error handling
+
+```php
+require __DIR__ . '/vendor/autoload.php';
+
+use BudgetInvoice\EasyInvoice
+
+// Set the data you wish to see on your invoice
+$invoiceData = [
+    "product": [
+        "quantity" => 2,
+        "description" => "Product 1",
+        "tax-rate" => 6,
+        "price" => 33.87
+    ]
+];
+
+try {
+   // Sample code to test the library
+   $invoice = EasyInvoice::create($invoiceData);
+   
+   // The invoice['pdf'] variable wil contain a base64 PDF string
+   echo $invoice['pdf'];
+   
+   // Save the file locally as PDF
+   $fileName = 'invoice';
+   EasyInvoice::save($invoice['pdf'], $fileName);
+} catch (Exception $e){
+    echo $e->getMessage();
+}
+```
+
 ## Locales and Currency
 
 Used for number formatting and the currency symbol:
 
 ```php
 //E.g. for Germany, prices would look like 123.456,78 €
-$data = [ "settings" => ["locale" => "de-DE", "currency" => "EUR"]];
+$data = [
+    "settings" => [
+        "locale" => "de-DE", 
+        "currency" => "EUR"
+    ]
+];
 
 //E.g. for US, prices would look like $123,456.78
-$data = [ "settings" => ["locale" => "en-US", "currency" => 'USD']];
+$data = [
+    "settings" => [
+        "locale" => "en-US",
+        "currency" => "USD"
+    ]
+];
 ```
 
 Formatting and symbols are applied through

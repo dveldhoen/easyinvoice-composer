@@ -11,6 +11,7 @@ if (file_exists(__DIR__ . '/../../vendor/autoload.php')){
 
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class EasyInvoice
 {
@@ -18,7 +19,7 @@ class EasyInvoice
     {
         try {
             $client = new Client();
-            $response = $client->request('POST', 'https://api.budgetinvoice.com/v2/free/invoices', [
+            $response = $client->request('POST', 'https://api.easyinvoice.cloud/v2/free/invoices', [
                 'json' => ["data" => $data]
             ]);
 
@@ -26,9 +27,15 @@ class EasyInvoice
                 $result = json_decode($response->getBody(), true);
                 return $result['data'];
             }
-
-        } catch (\GuzzleHttp\Exception\GuzzleException $e) {
-            echo $e;
+        } catch (GuzzleException $e) {
+            $response = $e->getResponse();
+            if ($response) {
+                // If response is available, throw an exception with the response body
+                throw new \Exception('Error: ' . $response->getBody());
+            } else {
+                // If no response, throw the original exception
+                throw $e;
+            }
         }
     }
 
