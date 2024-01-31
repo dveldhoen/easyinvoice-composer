@@ -57,13 +57,7 @@ Note: Since these samples are in JSON, don't forget to convert them to PHP notat
 
 ## Demo
 
-Sample 1:
-<br/>
 <a href="https://phpsandbox.io/n/3czoi"><img src="https://phpsandbox.io/img/brand/badge.png" height="20" alt="PHPSandbox Notebook"></a>
-
-Sample 2:
-<br/>
-<a href="https://phpsandbox.io/n/w2gev"><img src="https://phpsandbox.io/img/brand/badge.png" height="20" alt="PHPSandbox Notebook"></a>
 
 ## Plans
 
